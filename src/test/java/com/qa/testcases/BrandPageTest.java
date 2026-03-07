@@ -19,7 +19,7 @@ public class BrandPageTest  extends BaseClass
 	AdminHomePage admin;
 	LoginPage login;
 	BrandPage brand;
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
    public void setUp() throws IOException, Exception
    {
 		initializeBrowser(UtilityClass.getPFData("BrowserName"));
@@ -27,22 +27,22 @@ public class BrandPageTest  extends BaseClass
 		login=new LoginPage();
 		brand=new BrandPage();
 		login.login("admin@gmail.com", "123456");
-		Thread.sleep(1000);
 		admin.clickOnBrandModuleAdminHomepage();
 		Thread.sleep(1000);
    }
-   @Ignore
-	@Test
+
+	@Test(groups= {"smoke"})
 	public void testAddNewBrandWithValidInput() throws AWTException, InterruptedException
 	{  
-//		brand.clickNewBrandBtn();
-//		brand.enterBrandName("Brand1");
-//		String filepath="C:\\Users\\sashw\\OneDrive\\Desktop\\FloorFactory\\New folder\\BrandLogo.jpg";
-//		brand.getUploadBrandLogoNewBrand(filepath);
-//		brand.selectStatus("Active");
-//		brand.clickOnSaveBtn();
-//		
+		brand.clickNewBrandBtn();
+		brand.enterBrandName("Brand1");
+		String filepath="C:\\Users\\sashw\\OneDrive\\Desktop\\FloorFactory\\New folder\\BrandLogo.jpg";
+		brand.getUploadBrandLogoNewBrand(filepath);
+		brand.selectStatus("Active");
+		brand.clickOnSaveBtn();
+		
 	}
+	/*
 	  @Ignore
       @Test 
       public void testAddNewBrandWithDuplicateName_ShouldShowValidationError()
@@ -56,7 +56,7 @@ public class BrandPageTest  extends BaseClass
       {
     	  
       }
-	
+	@Ignore
       @Test
       public void testEditExistingBrandDetailsSuccessfully() throws InterruptedException, AWTException 
       {
@@ -112,9 +112,9 @@ public class BrandPageTest  extends BaseClass
       {
     	  
       }
+	*/
 	
-	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown()
 	{
 		driver.quit();

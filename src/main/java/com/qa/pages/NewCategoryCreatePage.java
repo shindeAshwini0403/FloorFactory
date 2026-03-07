@@ -39,10 +39,12 @@ import io.qameta.allure.Step;
 		{
 			 PageFactory.initElements(driver,this);
 		}
+		
 	
 	    @Step("Enter Categoryname {0}")
 	    public void enterCategoryName(String categoryName) throws InterruptedException
 	    {
+	   	 wait.until(ExpectedConditions.visibilityOf(categoryNamInpute));
 			categoryNamInpute.sendKeys(categoryName);
 	    }
 	  
@@ -68,13 +70,6 @@ import io.qameta.allure.Step;
   
 			 	  	
 		}
-		
-	   @Step("Click Status option")
-	    public void clickonstatusCategory()
-	    {
-	    	CategoryStatus.click();
-	    }
-	   
 	   @Step("select category status{0}")
 	    public void selectCategoryStatus(String CategoryStatus)
 	    { 
@@ -93,19 +88,17 @@ import io.qameta.allure.Step;
 	    {
 	    	cancelBtn.click();
 	    }
-	    
 	    @Step("Dublicate category error message")
 	    public boolean isDuplicateCategoryErrorDisplayed()
 	    {
 	    	
-	    	 return duplicateErrorMsg.getText().contains("This category is already used, try another.");
-	    	
+	    	 return duplicateErrorMsg.getText().contains("This category is already used, try another.");	
 	    }
 	    @Step
-	    public boolean isEenabledSaveBth()
+	    public boolean isEenabledSaveBth() throws InterruptedException
 		  {
+	    	Thread.sleep(1000);
 			return saveBtn.isEnabled() ;
-			  
 		  }
 	    @Step
 	    public   String isEmptyFiledErrorMsgDisplayed()
@@ -118,13 +111,6 @@ import io.qameta.allure.Step;
 	    	    }
 	    	
 	    }
-		 
-	
-	    
-	  ////span[@id='select2-status-9x-container']
-	    
-	    
-
 		
 
 	}

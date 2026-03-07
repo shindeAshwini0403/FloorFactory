@@ -25,7 +25,7 @@ public class LoginPage extends BaseClass
 	{
 		PageFactory.initElements(driver,this);
 	}
-	  @Step("Login with usename:{0} and password:{1}..")
+	  @Step
     public AdminHomePage login(String userNamr,String password) throws InterruptedException
     {     
     	emailAddress.clear();
@@ -62,6 +62,7 @@ public class LoginPage extends BaseClass
     {
     	emailAddress.sendKeys(usernamr);
     	Pwd.sendKeys(password);
+    	
     	togglePasswordBtn.click();
     	
     }

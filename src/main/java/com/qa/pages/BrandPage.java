@@ -26,8 +26,8 @@ import com.qa.util.BaseClass;
 
 public class BrandPage extends BaseClass 
 {
-	
-	@FindBy(xpath="//a[contains(@class,'btn btn-added')]")private WebElement addnewbrandBtn;
+////a[normalize-space()='Add New Brand']	//a[contains(@class,'btn btn-added')]
+	@FindBy(xpath="//a[normalize-space()='Add New Brand']")private WebElement addnewbrandBtn;
 	@FindBy(css="tbody tr:nth-child(1) td:nth-child(1) div:nth-child(1) a:nth-child(1)") private  WebElement editBrandOption;
 	@FindBy(xpath="//table[@id=\"DataTables_Table_0\"]//tbody//tr//div/a[2]")private WebElement  deleteBrandOption;
 	//searchInput
@@ -37,7 +37,7 @@ public class BrandPage extends BaseClass
 	@FindBy(id="brand")private WebElement newBrandName;
 	@FindBy(xpath="(//div//input[contains(@type,'file')])[1]")private WebElement uploadnewBrandLogo;
 	@FindBy(id="submitBtn")private WebElement  saveBtnnewBrand; 
-	@FindBy(xpath="(//select[contains(@name,\"status\")])[2]")private WebElement brandStatus;
+	@FindBy(xpath="(//select[@class=\"form-control\"])[1]")private WebElement brandStatus;
 	@FindBy(xpath="(//button[@type='button'][normalize-space()='Cancel'])[2]")private WebElement cancelBtnNewBrand;
 	//UpdateBrandName 
 	@FindBy(xpath="//input[@id='edit-name']")private WebElement updateBrandName;
@@ -54,7 +54,7 @@ public class BrandPage extends BaseClass
 	// Success message after deletion (optional)
 	@FindBy(xpath="//div[text()=\"Brand has been deleted.\"]")private WebElement deleteConfirmatiomsg;
 	@FindBy(xpath="//div[@class=\"alert alert-success\"]")private  WebElement updateSuccessMsg;
-	 
+	  WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
 	
 	public BrandPage()
 	{
@@ -62,64 +62,63 @@ public class BrandPage extends BaseClass
 		
 	}
 	//click on cancel Btn
-//	public void ClickOnCancelBtnNewBrand()
-//	{
-//		cancelBtnNewBrand.click();
-//		
-//	}
-//	public String validateSaveBtnColornNewBrand()
-//	{
-//		 return saveBtnnewBrand.getCssValue("background");
-//	}
-//	//validate error message newbrand 
-//	public String getDublicateBrandErrorMessageNewBrand()
-//	{
-//		 return duplicateBrandError.getText();
-//	}
-//	//Clickon AddnewbrandOption
-//	public void clickNewBrandBtn()
-//	{
-//		wait.until(ExpectedConditions.visibilityOf(addnewbrandBtn));
-//
-//		addnewbrandBtn.click();
-//	}
-//    public void enterBrandName(String brandName)
-//    {
-//    	wait.until(ExpectedConditions.visibilityOf(newBrandName));
-//    	newBrandName.sendKeys(brandName);
-//    }
-//	//FileUpload NewBrand
-//	public void getUploadBrandLogoNewBrand(String brandLogoFile) throws AWTException, InterruptedException
-//	{
-//		 Thread.sleep(1000);
-//		JavascriptExecutor js=(JavascriptExecutor)driver;  
-//    	js.executeScript("arguments[0].click();",uploadnewBrandLogo);
-//		//Robat class
-//         Robot robot=new Robot();
-//         robot.delay(2000);
-//    	//Type of filepath
-//    	StringSelection filepath=new StringSelection(brandLogoFile);
-//    	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, filepath);
-//    	//press control v
-//    	robot.keyPress(KeyEvent.VK_CONTROL);
-//    	robot.keyPress(KeyEvent.VK_V);
-//    	robot.keyRelease(KeyEvent.VK_V);
-//    	robot.keyRelease(KeyEvent.VK_CONTROL);
-//    	//pressEnter
-//    	robot.keyPress(KeyEvent.VK_ENTER);
-//    	robot.keyRelease(KeyEvent.VK_ENTER);
-//    	
-//		
-//	}
-//	//select statusNewBrandpage
-//	public void selectStatus(String status)
-//	{
-//		
-//		Select select = new Select(brandStatus);
-//		select.selectByVisibleText(status);
-//		
-//		
-//	}
+	public void ClickOnCancelBtnNewBrand()
+	{
+		cancelBtnNewBrand.click();
+		
+	}
+	public String validateSaveBtnColornNewBrand()
+	{
+		 return saveBtnnewBrand.getCssValue("background");
+	}
+	//validate error message newbrand 
+	public String getDublicateBrandErrorMessageNewBrand()
+	{
+		 return duplicateBrandError.getText();
+	}
+	//Clickon AddnewbrandOption
+	public void clickNewBrandBtn()
+	{
+		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(addnewbrandBtn));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
+	}
+    public void enterBrandName(String brandName)
+    {
+    	wait.until(ExpectedConditions.visibilityOf(newBrandName));
+    	newBrandName.sendKeys(brandName);
+    }
+	//FileUpload NewBrand
+	public void getUploadBrandLogoNewBrand(String brandLogoFile) throws AWTException, InterruptedException
+	{
+		 Thread.sleep(1000);
+		JavascriptExecutor js=(JavascriptExecutor)driver;  
+    	js.executeScript("arguments[0].click();",uploadnewBrandLogo);
+		//Robat class
+         Robot robot=new Robot();
+         robot.delay(2000);
+    	//Type of filepath
+    	StringSelection filepath=new StringSelection(brandLogoFile);
+    	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath, filepath);
+    	//press control v
+    	robot.keyPress(KeyEvent.VK_CONTROL);
+    	robot.keyPress(KeyEvent.VK_V);
+    	robot.keyRelease(KeyEvent.VK_V);
+    	robot.keyRelease(KeyEvent.VK_CONTROL);
+    	//pressEnter
+    	robot.keyPress(KeyEvent.VK_ENTER);
+    	robot.keyRelease(KeyEvent.VK_ENTER);
+    	
+		
+	}
+	//select statusNewBrandpage
+	public void selectStatus(String status)
+	{
+		
+		Select select = new Select(brandStatus);
+		select.selectByVisibleText(status);
+		
+		
+	}
 //	//addNew Brand
 ////	public void addnewBrand(String brandsName,String brandLogo,String brandStatuss) throws AWTException
 ////	{
@@ -248,7 +247,7 @@ public class BrandPage extends BaseClass
     //click on save btn
     public void clickOnSaveBtn()
     {
-    	//wait.until(ExpectedConditions.elementToBeClickable(saveBtnnewBrand)).click();	
+    	wait.until(ExpectedConditions.elementToBeClickable(saveBtnnewBrand)).click();	
     }
     //EditBrandName
     public void enterUpdateBrandName(String editBrandName)

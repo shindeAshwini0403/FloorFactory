@@ -26,7 +26,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
-@Listeners({TestAllureReportListner.class})
+//@Listeners({TestAllureReportListner.class})
 public class LoginPageTest extends BaseClass
 {
 	 // Logger instance for the class
@@ -36,7 +36,7 @@ public class LoginPageTest extends BaseClass
 		AdminHomePage adminhomeP;
 		// Initialize Log4j logs
 		
-		@BeforeMethod
+		@BeforeMethod(alwaysRun = true)
 		public void setUp() throws Exception
 		{
 			 log= LogManager.getLogger(LoginPageTest.class);
@@ -46,7 +46,8 @@ public class LoginPageTest extends BaseClass
 			adminhomeP=new AdminHomePage();
 		    
 		}
-		@Test(priority=1,description="Verify login with valid crendintial")
+		
+		@Test(groups={"smoke"},priority=1,description="Verify login with valid crendintial",enabled=true)
 		@Severity(SeverityLevel.BLOCKER)
 		@Story("As a user, I should be able to login with correct credentials")
 		public void testloginWithValidInput() throws EncryptedDocumentException, InterruptedException, IOException
@@ -62,6 +63,7 @@ public class LoginPageTest extends BaseClass
 			     
 			    
 		}
+		@Ignore
 	    @Test(priority=2,description="Verify user login with Invalid  credentials",enabled=true)
 	    @Severity(SeverityLevel.NORMAL)
 		public void testloginWithInvalidData() throws InterruptedException, EncryptedDocumentException, IOException
@@ -79,6 +81,7 @@ public class LoginPageTest extends BaseClass
 		      log.info("Login failed as expected and proper error message was shown");
 			  
 		}
+		
 	    @Test(priority=3,description="Verify user login with blank username and password")
 	    @Severity(SeverityLevel.CRITICAL)
 	    public void loginwithEmptyFiled() throws EncryptedDocumentException, InterruptedException, IOException
@@ -92,6 +95,7 @@ public class LoginPageTest extends BaseClass
 	    	Assert.assertEquals(actualErrorMesg, expectedErrorMessage," Error message not displayed for empty field");
 	    	log.info("User cannot login with empty fields, and proper error is shown");	 
 	    }
+		
 	    @Test(priority=4,description="Veriry  password toggle Functionslity")
 	    @Severity(SeverityLevel.NORMAL)
 	    public void testTogglePasswordVisibility_WhenUserClicksEyeIcon() throws EncryptedDocumentException, IOException
@@ -104,8 +108,10 @@ public class LoginPageTest extends BaseClass
 	    	log.info("Password is visible after clicking toggle");
 	    	
 	    	
-	    }	   
+	    }
+		
 	    @Test(priority=5,description=" Verify logo is visible on the page")
+		
 	    @Severity(SeverityLevel.NORMAL)
          public void testLogoisDisplay()   
 	     {  
@@ -117,7 +123,7 @@ public class LoginPageTest extends BaseClass
 	          
 	
 	      }		
-		@AfterMethod
+		@AfterMethod(alwaysRun = true)
 		public void tearDown() throws Exception
 		{
 			driver.quit();

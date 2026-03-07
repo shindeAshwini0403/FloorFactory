@@ -10,6 +10,7 @@ public class AdminHomePage extends BaseClass
 {
     @FindBy(xpath="//span[text()=\"Category\"]")private WebElement category;
     @FindBy(xpath="//ul/li//span[text()=\"Brands\"]")private WebElement Brand;
+    @FindBy(xpath="//ul//li/a//span[text()=\"Units\"]")private WebElement Units;
 	
 	public AdminHomePage()
 	{
@@ -30,6 +31,10 @@ public class AdminHomePage extends BaseClass
 		
 	}
 	
-
+	public  void clickOnUnitsModuleAdminHomepage() 
+	{
+		Units.click();
+		
+	}
 }
 

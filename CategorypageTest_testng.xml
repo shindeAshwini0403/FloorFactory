@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="FloorFactory" verbose="1">
+
+<suite name="FloorFactory" verbose="5" Parallel="Methods" thread-count="2">
 <listeners>
         <listener  class-name="com.qa.extentreports.Listeners"> </listener>
         <listener class-name="com.qa.extentreports.TestAllureReportListner"/>
     </listeners>
-    
-  <test name="Category PageTest">
+   
+  <test name="Category PageTest1">
     <classes>
-      <class name="com.qa.testcases.CategoryPageTest">
-         <methods>
-           <include name="testAddCategoryWithEmptyFiled"/>
-        </methods>
-     </class>
+         <class name="com.qa.testcases.CategoryPageTest">  
+          <methods>
+              
+              <include name="testaddNewCategoryWithValid_Input"/>
+              <include name="testAddNewCategory_WithDuplicateName"/>
+              <include name="testAddCategoryWithEmptyFiled"/>
+             
+          </methods>
+           </class>
+         
     </classes>
-  </test> <!-- Test -->
+  </test>  
+  
+  <test name="Category PageTest2">
+    <classes>
+         <class name="com.qa.testcases.CategoryPageTest">  
+          <methods>
+              <include name="testSearchFunctionality_WithValidInput"/>
+              <include name="testSearchFunctionalityWithValidInvalidInput"/>
+          </methods>
+           </class>
+         
+    </classes>
+  </test> 
+
 </suite> <!-- Suite -->

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [FloorFactory]" guice-stage="DEVELOPMENT">
+<suite thread-count="2" name="Failed suite [FloorFactory]" verbose="5">
   <listeners>
     <listener class-name="com.qa.extentreports.Listeners"/>
     <listener class-name="com.qa.extentreports.TestAllureReportListner"/>
   </listeners>
-  <test thread-count="5" name="Category PageTest(failed)">
+  <test thread-count="2" name="Category PageTest2(failed)" verbose="5">
     <classes>
       <class name="com.qa.testcases.CategoryPageTest">
         <methods>
-          <include name="testAddCategoryWithEmptyFiled"/>
+          <include name="testSearchFunctionality_WithValidInput"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.qa.testcases.CategoryPageTest -->
     </classes>
-  </test> <!-- Category PageTest(failed) -->
+  </test> <!-- Category PageTest2(failed) -->
 </suite> <!-- Failed suite [FloorFactory] -->

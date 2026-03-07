@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="SmokeSuit " verbose="5" >
+<listeners>
+            <listener class-name="com.qa.analyzer.MyTransformer" /> 
+            <listener  class-name="com.qa.extentreports.Listeners"> </listener>
+           <listener class-name="com.qa.extentreports.TestAllureReportListner"/>
+        </listeners>
+  
+    
+  <test name="smokeSuite">
+    <classes>
+      <class name="com.qa.testcases.LoginPageTest"/>
+    </classes>
+  </test> 
+ 
+  
+</suite> <!-- Suite -->

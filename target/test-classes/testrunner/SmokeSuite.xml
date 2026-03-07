@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SmokeSuit " verbose="5" >
+<listeners>
+         <listener class-name="com.qa.analyzer.MyTransformer" />
+        <listener  class-name="com.qa.extentreports.Listeners"> </listener>
+        <listener class-name="com.qa.extentreports.TestAllureReportListner"/>
+    </listeners>
+    
+  <test name="smokeSuit">
+     <groups>
+         <run>
+            <include name="smoke"/>
+        </run>
+      </groups>
+    <classes>
+      <class name="com.qa.testcases.LoginPageTest" />/
+      
+       <class name="com.qa.testcases.CategoryPageTest" />
+        <class name="com.qa.testcases.SubCategoryPageTest" />
+         <class name="com.qa.testcases.BrandPageTest" />
+          <class name="com.qa.testcases.UnitsPageTest" />
+      
+    
+    
+    </classes>
+</test>
+</suite>
+  
+

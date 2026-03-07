@@ -14,7 +14,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
 
-public class UtilityClass extends BaseClass
+public class UtilityClass
+ extends BaseClass
 {
 	public static final int IMPLICIT_WAIT_TIME=0;
 	public static final int PAGE_WAIT_TIME=10;
