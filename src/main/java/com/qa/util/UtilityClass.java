@@ -18,7 +18,7 @@ public class UtilityClass
  extends BaseClass
 {
 	public static final int IMPLICIT_WAIT_TIME=0;
-	public static final int PAGE_WAIT_TIME=10;
+	public static final int PAGE_WAIT_TIME=20;
 	
 	
 	
