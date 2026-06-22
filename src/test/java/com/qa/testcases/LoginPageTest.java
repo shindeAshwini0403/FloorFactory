@@ -105,6 +105,7 @@ public class LoginPageTest extends BaseClass
 	    	String pwdFiledtype = login.getPasswordFiledType();
 	    	log.info("Password text"+pwdFiledtype);
 	    	Assert.assertEquals(pwdFiledtype, "text","Password field should be visible after toggling");
+	    	System.out.println("||===========||");
 	    	log.info("Password is visible after clicking toggle");
 	    	
 	    	
