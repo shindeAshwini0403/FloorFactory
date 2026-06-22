@@ -1,0 +1,5 @@
+com\qa\testcases\UnitsPageTest.class
+com\qa\testcases\SubCategoryPageTest.class
+com\qa\testcases\CategoryPageTest.class
+com\qa\testcases\BrandPageTest.class
+com\qa\testcases\LoginPageTest.class

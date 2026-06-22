@@ -107,7 +107,7 @@
            <version>3.1.2</version> 
           <configuration>
              <suiteXmlFiles>
-           <suiteXmlFile>C:\Users\sashw\AutomationProjects\New folder\FloorFactoryP\FloorFactory\src\test\resources\testrunner\SmokeSuite.xml</suiteXmlFile>
+           <suiteXmlFile>C:\Users\sashw\AutomationProjects\New folder\FloorFactoryP\FloorFactory\LoginPage.xml</suiteXmlFile>
           </suiteXmlFiles>
             </configuration>
         </plugin>

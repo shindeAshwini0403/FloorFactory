@@ -1,0 +1,15 @@
+com\qa\pages\BrandPage.class
+com\qa\pages\LoginPage.class
+com\qa\analyzer\MyTransformer.class
+com\qa\extentreports\TestAllureReportListner.class
+com\qa\extentreports\ExtentclassReportes.class
+com\qa\extentreports\Listeners.class
+com\qa\pages\NewCategoryCreatePage.class
+com\qa\pages\SubCategoryPage.class
+com\qa\analyzer\RetryAnalyzers.class
+com\qa\pages\UnitsPage.class
+com\qa\util\UtilityClass.class
+com\qa\pages\ProductPage.class
+com\qa\util\BaseClass.class
+com\qa\pages\AdminHomePage.class
+com\qa\pages\CategoryHomePage.class
