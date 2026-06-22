@@ -58,7 +58,7 @@ public class LoginPage extends BaseClass
     	
     }
     @Step("Click password visibility toggle icon")
-    public void clickTogglePasswordVissibility(String usernamr,String password)
+    public void clickTogglePasswordVissibility(String usernamr, String password)
     {
     	emailAddress.sendKeys(usernamr);
     	Pwd.sendKeys(password);
