@@ -1,26 +1,28 @@
 pipeline {
     agent any
-      tools {
+
+    tools {
         maven 'Maven'
+        jdk 'JDK'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code'
+                git branch: 'main',
+                    url: 'https://github.com/shindeAshwini0403/FloorFactory.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build application'
+                bat 'mvn clean test'
             }
         }
-
-        stage('Test') {
+         stage(' Test') {
             steps {
-                echo' test application'
+                bat 'mvn clean test'
             }
         }
     }
@@ -29,9 +31,8 @@ pipeline {
         success {
             echo 'Build Successful'
         }
-
         failure {
             echo 'Build Failed'
         }
-    }
+      
 }
